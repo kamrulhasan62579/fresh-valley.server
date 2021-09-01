@@ -74,12 +74,7 @@ app.get('/cheakOutData', (req, res) => {
     res.send(documents)
   })
 })
-app.get('/individual/:email', (req, res) => {
-  cheakOutDataCollection.find({email: req.query.email})
-  .toArray((err, documents) => {
-    res.send(documents)
-  })
-})
+
 
 });
 
