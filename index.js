@@ -4,7 +4,15 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
  
 var app = express()
- 
+
+
+
+const { MongoClient, ObjectId } = require('mongodb');
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.smuci.mongodb.net/fresh-valley?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
  
@@ -14,13 +22,6 @@ app.use(bodyParser.json())
  
 app.use(cors())
  
-
-
-const { MongoClient, ObjectId } = require('mongodb');
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.smuci.mongodb.net/fresh-valley?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-
 
 
 client.connect(err => {
