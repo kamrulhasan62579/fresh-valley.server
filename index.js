@@ -83,8 +83,9 @@ app.get('/individual/:email', (req, res) => {
 
 });
 
-app.get('/', function (req, res) {
-  res.send('hello world')
+
+app.get('/', (req, res) => {
+  res.send('Hello web developers')
 })
 
 app.listen(process.env.PORT || 4007, () => console.log('Listening from port 4007'))
